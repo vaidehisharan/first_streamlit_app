@@ -32,6 +32,8 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # frame the fruityvice data into the table
 streamlit.dataframe(fruityvice_normalized)
 
+#Stop the duplicate
+streamlit.stop()
 import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -41,7 +43,7 @@ streamlit.header("the fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
 # New Section to display fruityvice API Response
-fruit_choice = streamlit.text_input('What fruit would you like information about?','banana')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','kiwi')
 streamlit.write('The user entered ', fruit_choice)
 
 # this is wrong one but go ahead
