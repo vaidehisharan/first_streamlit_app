@@ -14,7 +14,7 @@ My_fruit_list=pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/
 My_fruit_list = My_fruit_list.set_index('Fruit')
 
 # Let's put a pick list here so they can pick the fruit they want to include 
-fruits_selected= streamlit.multiselect("Pick some fruits:", list(My_fruit_list.index),['Avocado','Strawberries'])
+fruits_selected= streamlit.multiselect("Pick some fruits:", list(My_fruit_list.index),['Orange'])
 fruits_to_show = My_fruit_list.loc[fruits_selected]
 
 # Display the table on the page
@@ -22,7 +22,7 @@ streamlit.dataframe(fruits_to_show)
 
 # New Section to display fruityvice API Response
 streamlit.header("Fruityvice Fruit Advice!")
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Orange')
 streamlit.write('The user entered ', fruit_choice)
 
 import requests
@@ -41,7 +41,7 @@ streamlit.header("the fruit load list contains:")
 streamlit.dataframe(my_data_rows)
 
 # New Section to display fruityvice API Response
-fruit_choice = streamlit.text_input('What fruit would you like information about?','jackfruit')
+fruit_choice = streamlit.text_input('What fruit would you like information about?','banana')
 streamlit.write('The user entered ', fruit_choice)
 
 # this is wrong one but go ahead
